@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="João Ramos Imóveis — Consultoria imobiliária de alto padrão em São Paulo. Arquitetura autoral, endereços exclusivos e experiência quiet luxury.">
+    <title>João Ramos | Imóveis de Alto Padrão em SP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Josefin+Sans:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+    <!-- ── Header ── -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo" aria-label="João Ramos Real Estate">
+                <h1>João Ramos</h1>
+                <span>Real Estate · São Paulo</span>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#imoveis" class="nav-link">Portfólio</a></li>
+                    <li><a href="#bairros" class="nav-link">Bairros</a></li>
+                    <li>
+                        <a href="#favoritos" class="nav-favoritos nav-link" id="nav-fav-btn">
+                            Salvos <span class="fav-count" id="fav-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ── Hero ── -->
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero-background" id="hero-bg" role="img" aria-label="Edifício moderno em São Paulo"></div>
+
+            <div class="container hero-container">
+                <!-- Left: Title -->
+                <div class="hero-left">
+                    <div class="hero-text-mask">
+                        <h2 class="hero-title" id="hero-title">
+                            Onde o orgânico<br>encontra o luxo.
+                        </h2>
+                    </div>
+                    <div class="hero-subtitle-wrap">
+                        <p class="hero-subtitle">Endereços raros. Experiências únicas.</p>
+                    </div>
+
+                    <div class="search-box" id="hero-search">
+                        <form id="search-form" role="search">
+                            <div class="search-input-group">
+                                <label for="search-input" class="search-label-text">Busca</label>
+                                <input type="text" id="search-input" placeholder="Bairro, referência ou cidade…" aria-label="Buscar imóveis">
+                            </div>
+                            <div class="search-filters">
+                                <label for="type-filter" class="search-label-text">Tipo</label>
+                                <select id="type-filter" aria-label="Tipo de imóvel">
+                                    <option value="all">Todos</option>
+                                    <option value="casa">Casa</option>
+                                    <option value="predio">Apartamento</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary magnetic-btn" id="search-btn">
+                                <span>Descobrir</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Stats -->
+                <div class="hero-right">
+                    <div class="hero-stats" id="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="18">0</span>
+                            <span class="stat-label">Anos de mercado</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="320">0</span>
+                            <span class="stat-label">Imóveis entregues</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="12">0</span>
+                            <span class="stat-label">Bairros selecionados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- ── Portfolio ── -->
+        <section id="imoveis" class="properties-section" aria-labelledby="portfolio-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="fade-up-element">Portfólio exclusivo</p>
+                    <h3 id="portfolio-title" class="split-text">Propriedades selecionadas</h3>
+                </div>
+
+                <div class="results-info fade-up-element" id="results-info" aria-live="polite"></div>
+
+                <div class="properties-grid" id="properties-grid" role="list" aria-label="Listagem de imóveis">
+                    <!-- Cards injetados via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Favoritos ── -->
+        <section id="favoritos" class="favorites-section" style="display:none;" aria-labelledby="fav-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="fade-up-element">Curadoria pessoal</p>
+                    <h3 id="fav-title" class="split-text">Sua seleção</h3>
+                </div>
+
+                <button class="btn btn-outline back-to-portfolio magnetic-btn" id="back-to-portfolio">
+                    <span>← Voltar ao portfólio</span>
+                </button>
+
+                <div class="properties-grid" id="favorites-grid" role="list" aria-label="Imóveis salvos"></div>
+                <div id="no-favorites-msg" class="no-favorites" style="display:none;" role="status">
+                    <p>Você ainda não salvou nenhum imóvel.<br>Clique no ♡ em qualquer propriedade para guardá-la aqui.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Bairros — ao final da página ── -->
+        <section id="bairros" class="neighborhoods-section" aria-labelledby="bairros-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="fade-up-element">São Paulo · SP</p>
+                    <h3 id="bairros-title" class="split-text">Regiões exclusivas</h3>
+                </div>
+
+                <div class="neighborhoods-grid" role="list">
+                    <a href="#" class="neighborhood-item" data-bairro="Jardins" role="listitem">
+                        <span class="n-number">01</span>
+                        <span class="n-name">Jardins</span>
+                        <span class="n-desc">Tradição e ruas arborizadas</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#" class="neighborhood-item" data-bairro="Vila Nova Conceição" role="listitem">
+                        <span class="n-number">02</span>
+                        <span class="n-name">Vila Nova Conceição</span>
+                        <span class="n-desc">O metro quadrado mais nobre</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#" class="neighborhood-item" data-bairro="Itaim Bibi" role="listitem">
+                        <span class="n-number">03</span>
+                        <span class="n-name">Itaim Bibi</span>
+                        <span class="n-desc">Pulsante e cosmopolita</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#" class="neighborhood-item" data-bairro="Pinheiros" role="listitem">
+                        <span class="n-number">04</span>
+                        <span class="n-name">Pinheiros</span>
+                        <span class="n-desc">Vanguarda e gastronomia</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#" class="neighborhood-item" data-bairro="Fazenda Boa Vista" role="listitem">
+                        <span class="n-number">05</span>
+                        <span class="n-name">Fazenda Boa Vista</span>
+                        <span class="n-desc">Refúgios de campo absolutos</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#" class="neighborhood-item" data-bairro="Faria Lima" role="listitem">
+                        <span class="n-number">06</span>
+                        <span class="n-name">Faria Lima</span>
+                        <span class="n-desc">O centro financeiro principal</span>
+                        <span class="n-arrow" aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── CTA Section ── -->
+    <section class="cta-section" aria-labelledby="cta-title">
+        <div class="container cta-container">
+            <div class="cta-content fade-up-element">
+                <p class="cta-eyebrow">Atendimento exclusivo</p>
+                <h3 id="cta-title">Pronto para encontrar<br>o endereço perfeito?</h3>
+                <p class="cta-desc">Agende uma consultoria personalizada com nossa equipe. Sem compromisso, sem pressa — do seu jeito.</p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria." class="btn btn-primary magnetic-btn" target="_blank" rel="noopener noreferrer">
+                        <span>Falar pelo WhatsApp</span>
+                    </a>
+                    <a href="mailto:contato@joaoramos.com.br" class="btn btn-outline magnetic-btn">
+                        <span>Enviar e-mail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand fade-up-element">
+                    <h2>João Ramos</h2>
+                    <p>Consultoria imobiliária com foco em arquitetura autoral e alto padrão. Há 18 anos redefinindo o conceito de morar bem em São Paulo.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links fade-up-element">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#imoveis">Portfólio</a></li>
+                        <li><a href="#bairros">Bairros</a></li>
+                    </ul>
+                </div>
+                <address class="footer-contact fade-up-element">
+                    <h4>Contato</h4>
+                    <p><a href="mailto:contato@joaoramos.com.br">contato@joaoramos.com.br</a></p>
+                    <p><a href="tel:+5511999999999">+55 (11) 99999-9999</a></p>
+                    <p>Av. Europa, 1100 · Jardins, SP</p>
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 João Ramos Real Estate. Todos os direitos reservados.</p>
+                <p>CRECI 12.345-SP</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── WhatsApp Flutuante ── -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20im%C3%B3veis."
+       class="whatsapp-fab"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Falar pelo WhatsApp"
+       id="whatsapp-fab">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff">
+            <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004a15.94 15.94 0 0 0 2.46 8.54L.848 31.456l7.168-1.584A15.93 15.93 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-1.932 2.014-3.168 2.28-.848.18-1.956.324-5.684-1.222-4.776-1.978-7.848-6.836-8.088-7.152-.23-.316-1.932-2.572-1.932-4.904s1.222-3.476 1.656-3.952c.434-.476.948-.596 1.264-.596.316 0 .632.002.908.016.292.014.682-.11 1.066.814.39.948 1.332 3.248 1.448 3.484.116.236.192.512.038.828-.154.316-.23.512-.46.79-.23.278-.484.62-.692.832-.23.236-.47.492-.202.964.268.472 1.192 1.966 2.56 3.184 1.76 1.566 3.244 2.052 3.704 2.282.46.23.728.192.996-.116.268-.308 1.15-1.34 1.456-1.8.308-.46.614-.38 1.034-.23.42.154 2.66 1.256 3.114 1.484.46.23.764.344.878.532.116.192.116 1.1-.274 2.2z"/>
+        </svg>
+    </a>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
